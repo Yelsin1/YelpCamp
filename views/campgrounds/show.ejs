@@ -5,7 +5,9 @@
         <div class="col-6">
             <%= success %>
             <div class="card">
-                <img  src="<%= image %>" class="card-img-top" alt="...">
+                <% for (let img of images) { %>
+                    <img  src="<%= img.url %>" class="card-img-top" alt="...">
+                <% } %>           
                 <div class="card-body">
                     <h5 class="card-title"><%= title %></h5>
                     <p class="card-text"><%= description %></p>

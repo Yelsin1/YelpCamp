@@ -20,6 +20,7 @@ module.exports.showCampground = async (req, res, next) => {
         req.flash('error', 'we cannot find this campground at the moment');
         res.redirect('/campgrounds');
     }
+    console.log(campgrounds)
     res.render('campgrounds/show', campgrounds);
 }
 
@@ -34,9 +35,11 @@ module.exports.renderEditForm = async (req, res) => {
 }
 
 module.exports.createCampground = async (req, res, next) => {
-    // if (!req.body.campground) throw  new ExpressError("Invalid campground data", 400);
+    // if (!req.body.campground) throw  new ExpressError("Invalid campground data", 400); 
     const camp = await new Campground(req.body.campground);
+    camp.images = req.files.map(f => ({url: f.path, filename: f.filename}));
     camp.author = req.user._id;
+    console.log(camp);
     camp.save();
     req.flash('success', 'Successfully created Campground');
     res.redirect(`/campgrounds/${camp._id}`);
