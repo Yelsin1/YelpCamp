@@ -4,6 +4,7 @@
 <div class="row mb-5"> 
         <div class="col-6">
             <%= success %>
+            
             <div id="campgroundCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                   <% images.forEach((img, i) => { %>
@@ -78,6 +79,7 @@
         </div>
 
         <div class="col-6">
+            <div id='map' style='width: 600px; height: 300px;'></div>
             <% if (currentUser) { %>
             <form action="/campgrounds/<%= _id %>/reviews" method="post" class="p-3 validate-form" novalidate>
                 <h2>Leave a review</h2>
@@ -126,3 +128,8 @@
             <% } %>
         </div>
 </div>
+<script>
+    var mapb_access = '<%-process.env.MAPBOX_TOKEN %>';
+    var geometry = <%- geometry %>
+</script>
+<script src="/javascripts/map.js"></script>
