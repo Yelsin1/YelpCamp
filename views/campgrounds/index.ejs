@@ -29,6 +29,7 @@
 
 <script>
         var mapb_access = '<%-process.env.MAPBOX_TOKEN %>';
+        var camp_data = {features: <%- JSON.stringify(campgrounds) %>};
 </script>
 
 <script src="/javascripts/clusterMap.js"></script>

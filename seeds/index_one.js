@@ -19,7 +19,7 @@ const array = (array) => array[Math.floor(Math.random() * array.length)];
 
 seadDB = async () => {
     await Campground.deleteMany({});
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 1500; i++) {
         let random1000 = Math.floor(Math.random() * 1000);
         let price = Math.floor(Math.random() * 20) + 10;
 
