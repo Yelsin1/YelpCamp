@@ -42,8 +42,7 @@ seadDB = async () => {
             geometry: {
               "type": "Point",
               "coordinates": [
-                `${cities[random1000].longitude}, 
-                ${cities[random1000].latitude}`
+                `${cities[random1000].longitude}, ${cities[random1000].latitude}`
               ]
             }
         })
