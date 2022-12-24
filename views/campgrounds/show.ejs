@@ -130,6 +130,10 @@
 </div>
 <script>
     var mapb_access = '<%-process.env.MAPBOX_TOKEN %>';
-    var geometry = <%- geometry %>
+    var geometry = <%- geometry %>;
+    var nona = {
+        "title": <%- title %>,
+        "location": <%- location %>
+    };
 </script>
 <script src="/javascripts/map.js"></script>
