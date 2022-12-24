@@ -131,9 +131,7 @@
 <script>
     var mapb_access = '<%-process.env.MAPBOX_TOKEN %>';
     var geometry = <%- geometry %>;
-    var nona = {
-        "title": <%- title %>,
-        "location": <%- location %>
-    };
+    var title_on_map = '<%- title %>';
+    var location_on_map = '<%- location %>';
 </script>
 <script src="/javascripts/map.js"></script>

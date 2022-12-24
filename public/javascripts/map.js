@@ -11,7 +11,7 @@ var marker = new mapboxgl.Marker()
         .setPopup(
             new mapboxgl.Popup({ offset: 25 })
                 .setHTML(
-                    `<h3>${nona}</h3>`
+                    `<h3>${title_on_map}</h3><p>${location_on_map}</p>`
                 )
         )
         .addTo(map);
