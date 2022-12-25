@@ -16,6 +16,7 @@ const passport = require('passport');
 const localStrategy = require('passport-local');
 const User = require('./models/user');
 const users = require('./routes/users');
+// const helmet = require('helmet');
 
 
 mongoose.connect('mongodb://localhost:27017/yelp-camp', {
@@ -34,14 +35,17 @@ mongoose.set('useFindAndModify', false);
 const app = express();
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'));
+// app.use(helmet({ contentSecurityPolicy: false }));
 
 // session
 app.use(session({
+    name: 'Yelsin',
     secret: 'thisshouldbeavalidsecret',
     resave: false,
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
+        // secure: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
