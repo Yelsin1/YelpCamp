@@ -18,8 +18,9 @@ const User = require('./models/user');
 const users = require('./routes/users');
 // const helmet = require('helmet');
 
+const DB_URL = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp';
 
-mongoose.connect('mongodb://localhost:27017/yelp-camp', {
+mongoose.connect(DB_URL, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
@@ -102,6 +103,8 @@ app.use((error, request, response, next) => {
     response.status(status).render('error', { error });
 })
 
-app.listen(6060, () => {
-    console.log("listening on Port: 6060");
+const port = process.env.PORT || '6060';
+
+app.listen(port, () => {
+    console.log(`listening on Port: ${port}`);
 });
